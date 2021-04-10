@@ -139,4 +139,7 @@ h1{
 
 .descripcion-robot {
     margin: 0.5rem 0;
+    font-family:'Montserrat', Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
 }
