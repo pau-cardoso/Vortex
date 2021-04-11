@@ -152,5 +152,9 @@ h1{
     line-height: 1.5;
 }
 
+.div__video {
+    width: 80%;
+}
+
 /* Contenido de programación */
 
