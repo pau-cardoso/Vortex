@@ -158,3 +158,12 @@ h1{
 
 /* Contenido de programación */
 
+.logo-drive {
+    width:10%;
+    margin-bottom: 10px;
+}
+
+.img-drive {
+    width: 100%;
+    height: auto;
+}

@@ -52,14 +52,76 @@
 				<h3 class="section-title text-center title-adjust mb-4">Programación</h3>
 				<br>
 				<h5 class="section-subtitle text-dark">Código</h5> 
-				<br>
+				<img class="logo-drive" src="images/logoDrive.jpg" title="Diagrama de flujo">
+				<a href="https://drive.google.com/drive/folders/1hrlhd67v_0iZX2N1CgS50kAvPArczBXf?usp=sharing" target="_BLANK">Link de los archivos</a>
+				<br><br>
 				<h5 class="section-subtitle text-dark">Control Autónomo</h5>
 				<div class="img-div">
-					<img src="images/diagramaControl.png" title="Diagrama de flujo">
+					<img class="img-drive" src="images/diagramaControl.png" title="Diagrama de flujo">
 				</div>
+				<br><br>
+				<h5 class="section-subtitle text-dark">Funcionamiento de Código</h5>
+				<div style="text-align:center;">
+					<iframe width="100%" height="400px" src="https://www.youtube.com/embed/whZ1YMZ0nnw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div> 
+				<br><br>
+				<h5 class="section-subtitle text-dark">Python</h5> 
+				<p>
+					<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># VEX V5 Python Project</span>
+					<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">sys</span>
+					<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">vex</span>
+					<span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">vex</span> <span style="color: #008800; font-weight: bold">import</span> <span style="color: #333333">*</span>
+					<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">motor_group</span>
+					<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">drivetrain</span>
+					<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">smartdrive</span>
+
+					<span style="color: #888888">#region config</span>
+					brain      <span style="color: #333333">=</span> vex<span style="color: #333333">.</span>Brain()
+					motor_1    <span style="color: #333333">=</span> vex<span style="color: #333333">.</span>Motor(vex<span style="color: #333333">.</span>Ports<span style="color: #333333">.</span>PORT1, vex<span style="color: #333333">.</span>GearSetting<span style="color: #333333">.</span>RATIO18_1, <span style="color: #007020">False</span>)
+					motor_2    <span style="color: #333333">=</span> vex<span style="color: #333333">.</span>Motor(vex<span style="color: #333333">.</span>Ports<span style="color: #333333">.</span>PORT2, vex<span style="color: #333333">.</span>GearSetting<span style="color: #333333">.</span>RATIO18_1, <span style="color: #007020">False</span>)
+					motor_3    <span style="color: #333333">=</span> vex<span style="color: #333333">.</span>Motor(vex<span style="color: #333333">.</span>Ports<span style="color: #333333">.</span>PORT3, vex<span style="color: #333333">.</span>GearSetting<span style="color: #333333">.</span>RATIO18_1, <span style="color: #007020">True</span>)
+					motor_4    <span style="color: #333333">=</span> vex<span style="color: #333333">.</span>Motor(vex<span style="color: #333333">.</span>Ports<span style="color: #333333">.</span>PORT4, vex<span style="color: #333333">.</span>GearSetting<span style="color: #333333">.</span>RATIO18_1, <span style="color: #007020">True</span>)
+					inertial_5 <span style="color: #333333">=</span> vex<span style="color: #333333">.</span>Inertial(vex<span style="color: #333333">.</span>Ports<span style="color: #333333">.</span>PORT5)
+					motor_6    <span style="color: #333333">=</span> vex<span style="color: #333333">.</span>Motor(vex<span style="color: #333333">.</span>Ports<span style="color: #333333">.</span>PORT6, vex<span style="color: #333333">.</span>GearSetting<span style="color: #333333">.</span>RATIO18_1, <span style="color: #007020">False</span>)
+					motor_7    <span style="color: #333333">=</span> vex<span style="color: #333333">.</span>Motor(vex<span style="color: #333333">.</span>Ports<span style="color: #333333">.</span>PORT7, vex<span style="color: #333333">.</span>GearSetting<span style="color: #333333">.</span>RATIO18_1, <span style="color: #007020">True</span>)
+					bumper_A   <span style="color: #333333">=</span> vex<span style="color: #333333">.</span>Bumper(brain<span style="color: #333333">.</span>three_wire_port<span style="color: #333333">.</span>a)
+					sonar_C    <span style="color: #333333">=</span> vex<span style="color: #333333">.</span>Sonar(brain<span style="color: #333333">.</span>three_wire_port<span style="color: #333333">.</span>c)
+					dt         <span style="color: #333333">=</span> smartdrive<span style="color: #333333">.</span>Smartdrive((motor_3, motor_4), (motor_1, motor_2), inertial_5, <span style="color: #6600EE; font-weight: bold">319.1764</span>, <span style="color: #6600EE; font-weight: bold">292.1</span>, vex<span style="color: #333333">.</span>DistanceUnits<span style="color: #333333">.</span>MM, <span style="color: #0000DD; font-weight: bold">1</span>)
+					<span style="color: #888888">#endregion config</span>
+
+
+					<span style="color: #888888">#Brazo.set_velocity</span>
+					dt<span style="color: #333333">.</span>set_drive_velocity(<span style="color: #0000DD; font-weight: bold">80</span>,vex<span style="color: #333333">.</span>PERCENT)
+					dt<span style="color: #333333">.</span>set_turn_velocity(<span style="color: #0000DD; font-weight: bold">80</span>,vex<span style="color: #333333">.</span>PERCENT)
+					dt<span style="color: #333333">.</span>set_stopping(vex<span style="color: #333333">.</span>BrakeType<span style="color: #333333">.</span>HOLD)
+
+					motor_6<span style="color: #333333">.</span>set_velocity(<span style="color: #0000DD; font-weight: bold">100</span>, vex<span style="color: #333333">.</span>PERCENT)
+					motor_7<span style="color: #333333">.</span>set_velocity(<span style="color: #0000DD; font-weight: bold">100</span>, vex<span style="color: #333333">.</span>PERCENT)
+
+
+					dt<span style="color: #333333">.</span>turn_for(vex<span style="color: #333333">.</span>LEFT,<span style="color: #0000DD; font-weight: bold">90</span>)
+					dt<span style="color: #333333">.</span>drive_for(vex<span style="color: #333333">.</span>REVERSE,<span style="color: #0000DD; font-weight: bold">60</span>,vex<span style="color: #333333">.</span>DistanceUnits<span style="color: #333333">.</span>CM)
+					<span style="color: #888888">#depositar pelota</span>
+					dt<span style="color: #333333">.</span>turn_for(vex<span style="color: #333333">.</span>RIGHT,<span style="color: #0000DD; font-weight: bold">180</span>)
+					dt<span style="color: #333333">.</span>drive_for(vex<span style="color: #333333">.</span>REVERSE,<span style="color: #0000DD; font-weight: bold">80</span>,vex<span style="color: #333333">.</span>DistanceUnits<span style="color: #333333">.</span>CM)
+					<span style="color: #888888">#bajar brazo</span>
+					<span style="color: #888888">#recoger pelota</span>
+					<span style="color: #888888">#depositar pelota</span>
+					dt<span style="color: #333333">.</span>turn_for(vex<span style="color: #333333">.</span>LEFT,<span style="color: #0000DD; font-weight: bold">90</span>)
+					dt<span style="color: #333333">.</span>drive_for(vex<span style="color: #333333">.</span>REVERSE,<span style="color: #0000DD; font-weight: bold">170</span>,vex<span style="color: #333333">.</span>DistanceUnits<span style="color: #333333">.</span>CM)
+					dt<span style="color: #333333">.</span>turn_for(vex<span style="color: #333333">.</span>RIGHT,<span style="color: #0000DD; font-weight: bold">90</span>)
+					dt<span style="color: #333333">.</span>drive_for(vex<span style="color: #333333">.</span>REVERSE,<span style="color: #0000DD; font-weight: bold">30</span>,vex<span style="color: #333333">.</span>DistanceUnits<span style="color: #333333">.</span>CM)
+					dt<span style="color: #333333">.</span>turn_for(vex<span style="color: #333333">.</span>LEFT,<span style="color: #0000DD; font-weight: bold">90</span>)
+					dt<span style="color: #333333">.</span>drive_for(vex<span style="color: #333333">.</span>REVERSE,<span style="color: #0000DD; font-weight: bold">30</span>,vex<span style="color: #333333">.</span>DistanceUnits<span style="color: #333333">.</span>CM)
+					<span style="color: #888888">#REMOVER PELOTA</span>
+
+					dt<span style="color: #333333">.</span>stop()
+					</pre></div>
+				</p>
 			</div>
         </div>
     </div>
+	<br>
 
     <!-- Footer  -->
 	<div class="footer bg-dark mt-0">
